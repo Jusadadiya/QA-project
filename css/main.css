@@ -106,3 +106,31 @@ input:focus {
 	border-color: #BBBBBB;
 	background-size: auto;
 }
+
+.form_view{
+	width: 850px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0;
+	border: 1px solid #D9DDE2;
+	background: #FFFFFF;
+	background-size: cover;
+	color: #36454E;
+	box-shadow: none;
+	background-position: 50% 50%;
+}
+
+.field_view{
+	color: #FFFFFF;
+	border-style: none;
+	border-width: 0px;
+	border-color: #FFFFFF;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: normal;
+	min-width: 20%;
+	padding: 10px 20px;
+	text-transform: none;
+	box-shadow: none;
+}
