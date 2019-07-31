@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>JD Power SQA</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="text/javascript" src="./js/main.js">
+    </script>
+  </head>
+  <body>
+    <h1>Assignment 4 SQA</h1>
+
+    <form action="#" class="form" onsubmit="" method="post">
+        <div class="field">     
+            <label class="label">Search:</label>
+            <input type="text" class="text_field" required id="textSearch" size="25" placeholder="Search" />
+        </div>
+        <div class="field">          
+            <input type="submit" class="submit_button" name="search" value="Submit">
+        </div>
+    </form>
+
+    <form action="viewdata.html" class="form" onsubmit="return form_validation_function()" method="post">
+        <h2>Customer Information</h2>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#FF0000">All marked with * are Required</b>
+      <div class="field">     
+        <label class="label">Name: &nbsp;
+          <b style="color:#FF0000">*</b>
+        </label>
+        <input type="text" class="text_field" required id="textName" size="25" placeholder="Name" />
+        <span id="error-name"></span>
+      </div>
+      <div class="field">
+        <label class="label">Email:&nbsp;
+            <b style="color:#FF0000">*</b>
+        </label>
+        <input type="email" class="text_field" required id="textEmail" size="25" placeholder="E-mail" />
+        <span id="error-email"></span>
+      </div>
+      <div class="field">
+        <label class="label">Phone Number:&nbsp;
+            <b style="color:#FF0000">*</b>
+        </label>
+        <input type="text" class="text_field" required id="textPhone" size="25" placeholder="+1 123 456 7890" />
+        <span id="error-phone"></span>
+      </div>
+      <div class="field">
+        <label class="label">Address:&nbsp;</label>
+        <input type="text" class="text_field"  id="textAddress" size="25" placeholder="Address" />
+        <span id="error-address"></span>           
+      </div>
+      
+      <h2>Vehicle Information</h2>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#FF0000">All marked with * are Required</b>
+    <div class="field">     
+      <label class="label">Make: &nbsp;
+        <b style="color:#FF0000">*</b>
+      </label>
+      <input type="text" class="text_field" required id="textMake" size="25" placeholder="Ford" />
+      <span id="error-make"></span>
+    </div>
+    <div class="field">
+      <label class="label">Model:&nbsp;
+          <b style="color:#FF0000">*</b>
+      </label>
+      <input type="text" class="text_field" required id="textModel" size="25" placeholder="Mustang" />
+      <span id="error-model"></span>
+    </div>
+    <div class="field">
+      <label class="label">Year:&nbsp;
+          <b style="color:#FF0000">*</b>
+      </label>
+      <input type="text" class="text_field" required id="textYear" size="25" placeholder="2019" />
+      <span id="error-year"></span>
+    </div>
+      <div class="field">          
+        <input type="submit" class="submit_button" name="submit" value="Submit">
+        <input type="reset" class="reset_button" name="reset" value="Reset">
+      </div>
+    </form>
+  </body>
+</html>

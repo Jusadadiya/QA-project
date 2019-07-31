@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <title>Customer Car Details</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script type="text/javascript">
+    function e(){
+    text = localStorage.getItem("customerdetails");
+    obj = JSON.parse(text);
+    document.getElementById("name").innerHTML = obj.name;
+    document.getElementById("email").innerHTML = obj.email;
+    document.getElementById("phone").innerHTML = obj.phone;
+    document.getElementById("address").innerHTML = obj.address;
+    document.getElementById("make").innerHTML = obj.vehiclemake;
+    document.getElementById("model").innerHTML = obj.model;
+    document.getElementById("year").innerHTML = obj.year;
+    document.getElementById("link").innerHTML = "<a href=https://www.jdpower.com/Cars/"+obj.year+"/"+obj.vehiclemake+"/"+obj.model+">Products</a>";
+}
+    </script>
+  </head>
+  <body onload=e();>
+        <table>
+                <caption>Customer Data</caption>
+                <tr>
+                  <th>name</th>
+                  <th>email</th>
+                  <th>phone</th>
+                  <th>address</th>
+                  <th>Vehicle make</th>
+                  <th>model</th>
+                  <th>year</th> 
+                  <th>hyperlink</th>
+                </tr>
+                <tr>
+                    <td id="name">name</td>
+                    <td id="email">email</td>
+                    <td id="phone">phone</td>
+                    <td id="address">address</td>
+                    <td id="make">Vehicle make</td>
+                    <td id="model">model</td>
+                    <td id="year">year</td> 
+                    <td id="link">hyperlink</td>
+                </tr>
+              </table>
+    
+  </body>
+</html>
