@@ -121,16 +121,29 @@ input:focus {
 }
 
 .field_view{
-	color: #FFFFFF;
-	border-style: none;
-	border-width: 0px;
-	border-color: #FFFFFF;
-	border-radius: 2px;
+	margin-top:30px;
+	text-align: center;
+}
+
+.messgae{
+	margin-top:30px;
+	text-align: center;
+	font-size: 14px;
+}
+
+caption{
+	margin-top:30px;
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom:20px;
+}
+
+.back_button{
+	color: #FFFFFF !important;
+	background: #4CAF50;
+	background-size: auto;
 	text-align: center;
 	font-size: 14px;
 	font-weight: normal;
-	min-width: 20%;
 	padding: 10px 20px;
-	text-transform: none;
-	box-shadow: none;
 }

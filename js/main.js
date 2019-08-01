@@ -113,13 +113,33 @@ function searchpage_show_result(){
 	var n2 = loc.indexOf("="); // the location of "=equal"
 	var keyword = decodeURI(loc.substr(n2+1, n1-n2)); //get the content after "=equal"
 	
+	var text = localStorage.getItem("database_json");
+	if(!text){
+		return;
+	}
+
+	var dataArr = JSON.parse(text);
+	var tableData = "";
 	if(keyword == null || keyword == "") {
-		var text = localStorage.getItem("database_json");
-		var dataArr = JSON.parse(text);
-		var tableData = "";
 		for (var i = 0; i < dataArr.length; i++){
 			tableData += "<tr> <td>" + dataArr[i].name + "</td> <td>" + dataArr[i].email + "</td> <td>" + dataArr[i].phone + "</td> <td>" + dataArr[i].address + "</td> <td>" + dataArr[i].vehiclemake + "</td> <td>" + dataArr[i].model + "</td> <td>" + dataArr[i].year + "</td> <td>" + "<a href=https://www.jdpower.com/Cars/"+dataArr[i].year+"/"+dataArr[i].vehiclemake+"/"+dataArr[i].model+">Products</a>" + "</td> <tr>"
 		}
 		document.getElementById("myTbody").innerHTML = tableData;
+	}
+	else
+	{
+		var check_flag = false;
+		for (var i = 0; i < dataArr.length; i++){
+			if (dataArr[i].vehiclemake.toLowerCase() == keyword.toLowerCase()){
+				tableData += "<tr> <td>" + dataArr[i].name + "</td> <td>" + dataArr[i].email + "</td> <td>" + dataArr[i].phone + "</td> <td>" + dataArr[i].address + "</td> <td>" + dataArr[i].vehiclemake + "</td> <td>" + dataArr[i].model + "</td> <td>" + dataArr[i].year + "</td> <td>" + "<a href=https://www.jdpower.com/Cars/"+dataArr[i].year+"/"+dataArr[i].vehiclemake+"/"+dataArr[i].model+">Products</a>" + "</td> <tr>"
+				check_flag = true;
+			}
+		}
+		if(check_flag){
+			document.getElementById("myTbody").innerHTML = tableData;
+		}
+		else{
+			document.getElementById("result_message").innerHTML = "Sorry, Did Not Find That Car!";
+		}
 	}
 }
