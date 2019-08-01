@@ -67,24 +67,31 @@ function form_validation_function()
 	}
 	
 	{
-		var myObj, myJSON, text, obj;
-		myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
+		var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
 		vehiclemake:textMake.value,year:textYear.value,model:textModel.value};
-		myJSON = JSON.stringify(myObj);
-		localStorage.setItem("customerdetails", myJSON);
+
+		var oldJsonData = localStorage.getItem("database_json");
+		var JsonArr=[];
+		if(oldJsonData){
+			JsonArr = JSON.parse(oldJsonData);
+		}
+		JsonArr.push(myObj)
+
+		localStorage.setItem("database_json", JSON.stringify(JsonArr));
 	}
 	return isValid;
 }
 
-function search(){
-	var  getval = document.getElementById("textSearch").value;
+function switch_to_searchpage(){
+	var getval = document.getElementById("textSearch").value;
 	var myurl = "searchpage.html"+"?"+"keyword="+getval;   
 	window.location.assign(encodeURI(myurl));
 }
 
-function readJson(){
-    text = localStorage.getItem("customerdetails");
-    obj = JSON.parse(text);
+function read_latest_data(){
+	var text = localStorage.getItem("database_json");
+	var dataArr = JSON.parse(text);
+	var obj = dataArr[dataArr.length - 1];
     document.getElementById("name").innerHTML = obj.name;
     document.getElementById("email").innerHTML = obj.email;
     document.getElementById("phone").innerHTML = obj.phone;
@@ -98,4 +105,21 @@ function readJson(){
 function goHomepage(){
 	var myurl = "index.html";
 	window.location.assign(encodeURI(myurl));
+}
+
+function searchpage_show_result(){
+	var loc = location.href;
+	var n1 = loc.length; // the length of url
+	var n2 = loc.indexOf("="); // the location of "=equal"
+	var keyword = decodeURI(loc.substr(n2+1, n1-n2)); //get the content after "=equal"
+	
+	if(keyword == null || keyword == "") {
+		var text = localStorage.getItem("database_json");
+		var dataArr = JSON.parse(text);
+		var tableData = "";
+		for (var i = 0; i < dataArr.length; i++){
+			tableData += "<tr> <td>" + dataArr[i].name + "</td> <td>" + dataArr[i].email + "</td> <td>" + dataArr[i].phone + "</td> <td>" + dataArr[i].address + "</td> <td>" + dataArr[i].vehiclemake + "</td> <td>" + dataArr[i].model + "</td> <td>" + dataArr[i].year + "</td> <td>" + "<a href=https://www.jdpower.com/Cars/"+dataArr[i].year+"/"+dataArr[i].vehiclemake+"/"+dataArr[i].model+">Products</a>" + "</td> <tr>"
+		}
+		document.getElementById("myTbody").innerHTML = tableData;
+	}
 }

@@ -7,7 +7,7 @@
     <script type="text/javascript" src="./js/main.js"></script>
   </head>
 
-  <body>
+  <body onload=searchpage_show_result();>
     <table border="1" class="form_view">
       <caption>Search Result</caption>
       <tr>
@@ -20,16 +20,8 @@
         <th>year</th> 
         <th>hyperlink</th>
       </tr>
-      <tr>
-        <td id="name">name</td>
-        <td id="email">email</td>
-        <td id="phone">phone</td>
-        <td id="address">address</td>
-        <td id="make">Vehicle make</td>
-        <td id="model">model</td>
-        <td id="year">year</td> 
-        <td id="link">hyperlink</td>
-      </tr>
+      <tbody id="myTbody">
+      </tbody>
     </table>
 
     <form class="field_view">
