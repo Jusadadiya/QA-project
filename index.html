@@ -9,6 +9,7 @@
   <body>
     <h1>Assignment 4 SQA</h1>
 
+    <!--search function-->
     <div class="form">
         <div class="field">     
             <label class="label">Search:</label>
@@ -19,6 +20,7 @@
         </div>
     </div>
 
+    <!--user contact information-->
     <form action="viewdata.html" class="form" onsubmit="return form_validation_function()" method="post">
         <h2>Customer Information</h2>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#FF0000">All marked with * are Required</b>
@@ -49,6 +51,7 @@
         <span id="error-address"></span>           
       </div>
       
+      <!--cars information-->
       <h2>Vehicle Information</h2>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b style="color:#FF0000">All marked with * are Required</b>
     <div class="field">     
@@ -72,6 +75,8 @@
       <input type="text" class="text_field" required id="textYear" size="25" placeholder="2019" />
       <span id="error-year"></span>
     </div>
+
+    <!--submit and reset button-->
       <div class="field">          
         <input type="submit" class="submit_button" name="submit" value="Submit">
         <input type="reset" class="reset_button" name="reset" value="Reset">

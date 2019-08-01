@@ -1,4 +1,4 @@
-
+// Validation the input
 function form_validation_function()
 {
 	var isValid = true;
@@ -82,12 +82,14 @@ function form_validation_function()
 	return isValid;
 }
 
+// deliver the keywork by url
 function switch_to_searchpage(){
 	var getval = document.getElementById("textSearch").value;
 	var myurl = "searchpage.html"+"?"+"keyword="+getval;   
 	window.location.assign(encodeURI(myurl));
 }
 
+// show the latest record in the JSON
 function read_latest_data(){
 	var text = localStorage.getItem("database_json");
 	var dataArr = JSON.parse(text);
@@ -102,24 +104,29 @@ function read_latest_data(){
     document.getElementById("link").innerHTML = "<a href=https://www.jdpower.com/Cars/"+obj.year+"/"+obj.vehiclemake+"/"+obj.model+">Products</a>";
 }
 
+// Back to homepage
 function goHomepage(){
 	var myurl = "index.html";
 	window.location.assign(encodeURI(myurl));
 }
 
+// Show the search result
 function searchpage_show_result(){
 	var loc = location.href;
 	var n1 = loc.length; // the length of url
 	var n2 = loc.indexOf("="); // the location of "=equal"
 	var keyword = decodeURI(loc.substr(n2+1, n1-n2)); //get the content after "=equal"
 	
+	// when the json is not exist
 	var text = localStorage.getItem("database_json");
 	if(!text){
 		return;
 	}
 
+	
 	var dataArr = JSON.parse(text);
 	var tableData = "";
+	// show all records in the JSON
 	if(keyword == null || keyword == "") {
 		for (var i = 0; i < dataArr.length; i++){
 			tableData += "<tr> <td>" + dataArr[i].name + "</td> <td>" + dataArr[i].email + "</td> <td>" + dataArr[i].phone + "</td> <td>" + dataArr[i].address + "</td> <td>" + dataArr[i].vehiclemake + "</td> <td>" + dataArr[i].model + "</td> <td>" + dataArr[i].year + "</td> <td>" + "<a href=https://www.jdpower.com/Cars/"+dataArr[i].year+"/"+dataArr[i].vehiclemake+"/"+dataArr[i].model+">Products</a>" + "</td> <tr>"
@@ -128,6 +135,7 @@ function searchpage_show_result(){
 	}
 	else
 	{
+		// search a specific record by "Make"
 		var check_flag = false;
 		for (var i = 0; i < dataArr.length; i++){
 			if (dataArr[i].vehiclemake.toLowerCase() == keyword.toLowerCase()){
