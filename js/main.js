@@ -75,3 +75,27 @@ function form_validation_function()
 	}
 	return isValid;
 }
+
+function search(){
+	var  getval = document.getElementById("textSearch").value;
+	var myurl = "searchpage.html"+"?"+"keyword="+getval;   
+	window.location.assign(encodeURI(myurl));
+}
+
+function readJson(){
+    text = localStorage.getItem("customerdetails");
+    obj = JSON.parse(text);
+    document.getElementById("name").innerHTML = obj.name;
+    document.getElementById("email").innerHTML = obj.email;
+    document.getElementById("phone").innerHTML = obj.phone;
+    document.getElementById("address").innerHTML = obj.address;
+    document.getElementById("make").innerHTML = obj.vehiclemake;
+    document.getElementById("model").innerHTML = obj.model;
+    document.getElementById("year").innerHTML = obj.year;
+    document.getElementById("link").innerHTML = "<a href=https://www.jdpower.com/Cars/"+obj.year+"/"+obj.vehiclemake+"/"+obj.model+">Products</a>";
+}
+
+function goHomepage(){
+	var myurl = "index.html";
+	window.location.assign(encodeURI(myurl));
+}

@@ -4,21 +4,20 @@
     <title>JD Power SQA</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="./css/main.css" />
-    <script type="text/javascript" src="./js/main.js">
-    </script>
+    <script type="text/javascript" src="./js/main.js"></script>
   </head>
   <body>
     <h1>Assignment 4 SQA</h1>
 
-    <form action="#" class="form" onsubmit="" method="post">
+    <div class="form">
         <div class="field">     
             <label class="label">Search:</label>
-            <input type="text" class="text_field" required id="textSearch" size="25" placeholder="Search" />
+            <input type="text" class="text_field" id="textSearch" size="25" placeholder="Search" />
         </div>
         <div class="field">          
-            <input type="submit" class="submit_button" name="search" value="Submit">
+            <input type="button" class="submit_button" name="search" value="Submit" onclick="search()">
         </div>
-    </form>
+    </div>
 
     <form action="viewdata.html" class="form" onsubmit="return form_validation_function()" method="post">
         <h2>Customer Information</h2>
