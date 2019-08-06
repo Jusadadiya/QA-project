@@ -26,7 +26,7 @@ function form_validation_function()
 		}
 	}
 	if (textPhone.value != null && textPhone.value != "") {
-		var regexPhone = /^([+]\d) (\d){3} (\d){3} (\d){4}$/;
+		var regexPhone = /^((\d){3}-(\d){3}-(\d){4})|(\((\d){3}\)(\d){3}-(\d){4})$/;
 		if (!regexPhone.test(textPhone.value))
 		{
 			document.getElementById("error-phone").innerHTML = "Invalid phone number!!";
