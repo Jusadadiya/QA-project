@@ -66,6 +66,7 @@ function form_validation_function()
 		}
 	}
 	
+	if(isValid == true)
 	{
 		var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
 		vehiclemake:textMake.value,year:textYear.value,model:textModel.value};
