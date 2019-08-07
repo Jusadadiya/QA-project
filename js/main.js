@@ -69,9 +69,6 @@ function form_validation_function()
 	return isValid;
 }
 function savetojson(){
-	var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
-	if(isValid == true)
-	{
 		var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
 		vehiclemake:textMake.value,year:textYear.value,model:textModel.value};
 
