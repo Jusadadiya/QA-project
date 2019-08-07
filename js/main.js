@@ -66,8 +66,10 @@ function form_validation_function()
 		}
 	}
 	
-	{
-		var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
+	return isValid;
+}
+function savetojson(){
+	var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
 		vehiclemake:textMake.value,year:textYear.value,model:textModel.value};
 
 		var oldJsonData = localStorage.getItem("database_json");
@@ -78,10 +80,7 @@ function form_validation_function()
 		JsonArr.push(myObj)
 
 		localStorage.setItem("database_json", JSON.stringify(JsonArr));
-	}
-	return isValid;
 }
-
 // deliver the keywork by url
 function switch_to_searchpage(){
 	var getval = document.getElementById("textSearch").value;
