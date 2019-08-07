@@ -26,7 +26,7 @@ function form_validation_function()
 		}
 	}
 	if (textPhone.value != null && textPhone.value != "") {
-		var regexPhone = /^([+]\d) (\d){3} (\d){3} (\d){4}$/;
+		var regexPhone = /(^(\d){3}-(\d){3}-(\d){4}$)|(^\((\d){3}\)(\d){3}-(\d){4}$)/;
 		if (!regexPhone.test(textPhone.value))
 		{
 			document.getElementById("error-phone").innerHTML = "Invalid phone number!!";
@@ -70,6 +70,9 @@ function form_validation_function()
 }
 function savetojson(){
 	var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
+	if(isValid == true)
+	{
+		var myObj = {name:textName.value,email:textEmail.value,phone:textPhone.value,address:textAddress.value,
 		vehiclemake:textMake.value,year:textYear.value,model:textModel.value};
 
 		var oldJsonData = localStorage.getItem("database_json");
